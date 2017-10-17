@@ -29,3 +29,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
   Route::get('admin', 'DashboardController@dashboard')->name('admin.index');
   Route::resource('/category', 'CategoryNameController', ['as'=>'admin']);
 } );
+
+
+Route::get('/clear', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+	Artisan::call('route:clear');
+	Artisan::call('backup:clean');
+    return "Кэш очищен.";
+});

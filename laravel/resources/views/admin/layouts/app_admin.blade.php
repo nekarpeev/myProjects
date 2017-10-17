@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
@@ -32,11 +34,19 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
+                
+                
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                         <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Блог</a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{route('admin.category.index')}}">Категории</a></li>
+                            <li><a href="#">Материалы</a></li>
+                          </ul>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -70,52 +80,8 @@
                 </div>
             </div>
         </nav>
-        <!-- <div class="container">
-          <div class="row">
-            <div class="col-sm-3">
-              <div class="jumbotron">
-                <p><span class="label label-primary">Категорий 0</span></p>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="jumbotron">
-                <p><span class="label label-primary">Материалов 0</span></p>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="jumbotron">
-                <p><span class="label label-primary">Посетителей 0</span></p>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="jumbotron">
-                <p><span class="label label-primary">Сегодня 0</span></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-6">
-
-              <a class="list-group-item" href="#">
-                <h4 class="list-group-item-heading">Категория первая</h4>
-                <p class="list-group-item-text">
-                  Кол-во материалов
-                </p>
-              </a>
-            </div>
-            <div class="col-sm-6">
-              <a class="btn btn-block btn-default" href="#">Создать материал</a>
-              <a class="list-group-item" href="#">
-                <h4 class="list-group-item-heading">Материал первый</h4>
-                <p class="list-group-item-text">
-                  Категория
-                </p>
-              </a>
-            </div>
-          </div>
-        </div> -->
-        @yield('admin_content')
+        
+        @yield('content')
     </div>
 
     <!-- Scripts -->

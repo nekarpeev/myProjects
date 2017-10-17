@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\CategoryName;
+use App\Models\CategoryName;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CategoryNameController extends Controller
-{
+class CategoryNameController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         return view('admin.categories.index', [
-            'categories' => CategoryName::paginate(10);
+            'categories' => CategoryName::paginate(10)
         ]);
     }
 
@@ -25,9 +24,12 @@ class CategoryNameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('admin.categories.create', [
+            'category'   => [],
+            'categories' => CategoryName::with('children')->where('parent_id', '0')->get(),
+            'delimitr'   => ''
+        ]);
     }
 
     /**
@@ -36,8 +38,7 @@ class CategoryNameController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -47,8 +48,7 @@ class CategoryNameController extends Controller
      * @param  \App\CategoryName  $categoryName
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoryName $categoryName)
-    {
+    public function show(CategoryName $categoryName) {
         //
     }
 
@@ -58,8 +58,7 @@ class CategoryNameController extends Controller
      * @param  \App\CategoryName  $categoryName
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoryName $categoryName)
-    {
+    public function edit(CategoryName $categoryName) {
         //
     }
 
@@ -70,8 +69,7 @@ class CategoryNameController extends Controller
      * @param  \App\CategoryName  $categoryName
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoryName $categoryName)
-    {
+    public function update(Request $request, CategoryName $categoryName) {
         //
     }
 
@@ -81,8 +79,8 @@ class CategoryNameController extends Controller
      * @param  \App\CategoryName  $categoryName
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryName $categoryName)
-    {
+    public function destroy(CategoryName $categoryName) {
         //
     }
+
 }
