@@ -1,0 +1,314 @@
+[[$head2]]
+[[$loadcssfilter]]
+<body>
+	<div class="burger-maks">
+[[$menu]]
+[[$aparStyle]]
+<div>
+	<div id="show-status-object"></div>
+</div>
+<style>
+.filter-block{
+	padding-top: 10rem;
+}
+.btn-primary {
+  color: #8B755A;
+  background-color: #0B0F12;
+  border-color: #202325;
+ 	cursor: pointer;
+}
+.group-filter {
+
+  width: 100%;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #202325;
+  border-color: #8B755A;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #202325;
+  background-image: none;
+  border-color: #8B755A;
+}
+.hidden{
+    display: none !important;
+  }
+</style>
+
+
+
+<section  id="header">
+		<img src="[[*Img1TV:phpthumbof=`w=1920`]]" alt="">
+		<h1></h1>
+	<p ></p>
+</section>
+<div>
+<section>
+<form class="ajax-form">
+<div class="container-fluid">
+	<div class="bg-medium row">
+		<div class="col-lg-4 col-md-4 bg-dark filter-block">
+			<h2 id="h1 text-white">[[*hometitle1]]</h2>
+			<p class="text-white">[[*homeText1]]</p>
+			<div class="">
+				<div id="mf" class=" on-filter mob-block">	
+				<div class="bg-dark">
+						<span class="">Цена</span><br>	
+						<div  class="filter">
+							<div class="mt-5 btn-group group-filter">
+								<div class=" w-100" >
+									<input class=" btn mt-5" type="text" id="price-filter" value="" name="price-filter" />
+								</div>
+							</div>
+							<div class="mt-5 btn-group w-100">
+								<div class=" w-100" >
+									<input class=" btn mt-5" type="text" id="area-filter" value="" name="area-filter" />
+								</div>
+							</div>
+							<div class="mt-5">Количество комнат</div>
+							<div class="btn-group w-100 mt-2">
+								<label for="rooms_1" id="label-rooms_1" class="col btn btn-primary room-filter-btn" >1</label>
+								<label for="rooms_2" id="label-rooms_2" class="col btn btn-primary room-filter-btn" >2</label>
+								<label for="rooms_3" id="label-rooms_3" class="col btn btn-primary room-filter-btn" >3</label>
+								<label for="rooms_4" id="label-rooms_4" class="col btn btn-primary room-filter-btn" >4</label>
+							</div>
+							
+							<div class="filter btn-group hidden">
+								<input id="rooms_1" class="btn change_filter reset-no-floor" type="checkbox" name="rooms_1" value="1" >
+								<input id="rooms_2" class="btn change_filter reset-no-floor" type="checkbox" name="rooms_2" value="2" >
+								<input id="rooms_3" class="btn change_filter reset-no-floor" type="checkbox" name="rooms_3" value="3" >
+								<input id="rooms_4" class="btn change_filter reset-no-floor" type="checkbox" name="rooms_4" value="4" >
+
+								<input id="floor_filter" class="btn change_filter" type="text" name="floor-filter" value="" >
+							</div>
+							
+							<div class="btn-group w-100 mt-2">
+								<label for="parking_filter" data-type="Парковки"     id="type-1" class="col btn btn-primary type-filter-btn" >Парковки</label>
+								<label for="office_filter" 	data-type="Офисы"        id="type-2" class="col btn btn-primary type-filter-btn" >Офисы</label>
+								<label for="appart_filter" 	data-type="Аппартаменты" id="type-3" class="col btn btn-primary type-filter-btn" >Апартаменты</label>
+							</div>
+							<div class="btn-group w-100 mt-2">
+								<label for="for_status" data-type="Свободные"       id="status" class="col btn btn-primary status-filter-btn" >Свободные</label>
+								<label id="range-reset" class="col btn btn-primary ajax-reset" >Сбросить фильтер</label>
+							</div>
+						
+							
+						</div>
+						<div class="hidden">
+						<div class="">
+							<span class="">Площадь в m<sup><small>2</small></sup></span><br>
+							<label for="sort_price_asc"><small>Цена по возрастанию</small>	</label>
+							<input id="sort_price_asc" class="btn change_filter" type="radio" name="sort_filter" value="price_asc" >
+							<label for="sort_price_desc"><small>Цена по убыванию</small></label>
+							<input id="sort_price_desc" class="btn change_filter" type="radio" name="sort_filter" value="price_desc" >
+							
+							<input id="sort_area_asc" class="btn change_filter" type="radio" name="sort_filter" value="area_asc" >
+							<label for="sort_area_asc"><small>Площадь по возрастанию</small></label>
+							<input id="sort_area_desc" class="btn change_filter" type="radio" name="sort_filter" value="area_desc" >
+							<label for="sort_area_desc"><small>Площадь по убыванию</small></label>
+						</div>
+						
+						<div class="h100 filter">
+							<span></span><br>
+							<div >
+								<input class="change_filter reset-no-floor" id="for_status" type="checkbox" name="status" value="1" >
+							</div><br>
+							<span>Тип объекта</span><br>	
+							<div class="hidden">
+								<input id="office_filter" class="btn change_filter reset-no-floor" type="radio" name="type_filter" value="офис" >
+								<input id="appart_filter" class="btn change_filter reset-no-floor" type="radio" name="type_filter" value="Апартаменты" >
+								<input id="parking_filter" class="btn change_filter reset-no-floor" type="radio" name="type_filter" value="паркинг" >
+							</div>
+						</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="plan-s" class="col-lg-8 col-md-8 bg-medium">
+			<div class="row">
+			<div data-floor="1" 	id="floor-filter-1" class="col center bg-dark parking-floor-btn floor-filter-btn ajax-reset" >				1 этаж</div>
+			<div data-floor="2" 	id="floor-filter-2" class="col center bg-dark parking-floor-btn active-btn floor-filter-btn ajax-reset">	2 этаж</div>
+			<div data-floor="3" 	id="floor-filter-3" class="col center bg-dark parking-floor-btn floor-filter-btn ajax-reset">				3 этаж</div>
+			<div data-floor="4" 	id="floor-filter-4" class="col center bg-dark parking-floor-btn floor-filter-btn ajax-reset">				4 этаж</div>
+			<div data-floor="5" 	id="floor-filter-5" class="col center bg-dark parking-floor-btn floor-filter-btn ajax-reset">				5 этаж</div>
+			<div data-floor="-1"	id="floor-filter-6" class="col center bg-dark parking-floor-btn floor-filter-btn ajax-reset">				-1 этаж</div>
+			<div data-floor="-2"	id="floor-filter-7" class="col center bg-dark parking-floor-btn floor-filter-btn ajax-reset">				-2 этаж</div>
+			<div class="col-sm-12 col-xs-12 col-md-12 svg-box">[[$planFloorSvgTpl]]</div>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+	<section id="filter">
+		<div class="container-fluid">
+			<div  class="row">
+					<!--|||||||||||||||||||||||| ajax form ||||||||||||||||||||||||-->
+					
+					
+					
+				<div class="ajax-container row">
+					[[!catalogFilter?
+						&tpl=`roomsTpl`
+						&limit=`200`
+					]]
+				</div>		
+			</div>
+		</div>
+	</div>
+	</section>
+<section>
+	
+</section>
+[[$contact]]
+<div class="mobile-filter-panel hidden-lg hidden-md">
+	<ul>
+		<li><a href="[[~5]]#plan-s">
+			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+			<g>
+				<g>
+					<path d="M486.461,177.059H332.552V10.993c0-5.633-4.567-10.199-10.199-10.199H115.697c-5.633,0-10.199,4.566-10.199,10.199
+						v408.247c0,5.633,4.566,10.199,10.199,10.199h370.764v0c5.632,0,10.199-4.566,10.199-10.199V187.258
+						C496.66,181.625,492.093,177.059,486.461,177.059z M261.64,21.192h50.513v28.227H261.64V21.192z M125.896,21.192h115.346v28.226
+						H125.896V21.192z M177.422,409.041h-51.526V287.617h51.526V409.041z M312.154,409.041H197.821V287.617h114.333V409.041z
+						 M312.154,267.218H125.896v-197.4h186.258V267.218z M476.262,409.04h-143.71V197.458h143.71V409.04z"/>
+				</g>
+			</g>
+			<g>
+				<g>
+					<path d="M87.733,383.303c-3.983-3.982-10.441-3.982-14.425,0l-10.08,10.081V34.822l10.08,10.08
+						c1.992,1.992,4.602,2.987,7.212,2.987c2.61,0,5.221-0.995,7.212-2.987c3.983-3.983,3.983-10.441,0-14.425L60.241,2.986
+						c-3.983-3.982-10.441-3.982-14.425,0L18.326,30.478c-3.983,3.983-3.983,10.441,0,14.425c3.983,3.983,10.441,3.983,14.425,0
+						l10.08-10.081v358.563l-10.08-10.081c-3.983-3.982-10.441-3.982-14.425,0c-3.983,3.983-3.983,10.441,0,14.425l27.492,27.492
+						c1.992,1.992,4.602,2.987,7.212,2.987s5.221-0.995,7.212-2.987l27.492-27.493C91.716,393.745,91.716,387.287,87.733,383.303z"/>
+				</g>
+			</g>
+			<g>
+				<g>
+					<path d="M394.709,466.704H141.333l7.485-7.485c3.983-3.983,3.983-10.441,0-14.425c-3.983-3.983-10.441-3.983-14.425,0
+						l-24.896,24.896c-3.983,3.983-3.983,10.441,0,14.425l24.896,24.896c1.992,1.992,4.602,2.987,7.212,2.987s5.221-0.995,7.212-2.987
+						c3.983-3.983,3.983-10.441,0-14.425l-7.485-7.485h253.377c5.632,0,10.199-4.566,10.199-10.199S400.341,466.704,394.709,466.704z"
+						/>
+				</g>
+			</g>
+			<g>
+				<g>
+					<path d="M436.526,466.704h-4.08c-5.632,0-10.199,4.566-10.199,10.199c0,5.633,4.567,10.199,10.199,10.199h4.08
+						c5.632,0,10.199-4.566,10.199-10.199C446.725,471.271,442.158,466.704,436.526,466.704z"/>
+				</g>
+			</g>
+			<g>
+				<g>
+					<path d="M493.235,469.692l-24.896-24.896c-3.984-3.983-10.44-3.983-14.425,0c-3.983,3.983-3.983,10.441,0,14.424l17.685,17.684
+						l-17.685,17.684c-3.983,3.983-3.983,10.441,0,14.424c1.992,1.992,4.602,2.987,7.212,2.987c2.61,0,5.22-0.996,7.212-2.987
+						l24.897-24.896c1.912-1.912,2.987-4.507,2.987-7.212S495.148,471.604,493.235,469.692z"/>
+				</g>
+				</a>
+			</svg>
+		</li>
+		<li id="mobile-filter-button">
+
+			<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 54 54" style="enable-background:new 0 0 54 54;" xml:space="preserve">
+			<g>
+				<path d="M1,9h3v4c0,0.553,0.447,1,1,1h12c0.553,0,1-0.447,1-1V9h35c0.553,0,1-0.447,1-1s-0.447-1-1-1H18V3c0-0.553-0.447-1-1-1H5
+					C4.447,2,4,2.447,4,3v4H1C0.447,7,0,7.447,0,8S0.447,9,1,9z M6,4h10v8H6V4z"/>
+				<path d="M53,26H34v-4c0-0.553-0.447-1-1-1H21c-0.553,0-1,0.447-1,1v4H1c-0.553,0-1,0.447-1,1s0.447,1,1,1h19v4c0,0.553,0.447,1,1,1
+					h12c0.553,0,1-0.447,1-1v-4h19c0.553,0,1-0.447,1-1S53.553,26,53,26z M32,31H22v-8h10V31z"/>
+				<path d="M53,45h-3v-4c0-0.553-0.447-1-1-1H37c-0.553,0-1,0.447-1,1v4H1c-0.553,0-1,0.447-1,1s0.447,1,1,1h35v4c0,0.553,0.447,1,1,1
+					h12c0.553,0,1-0.447,1-1v-4h3c0.553,0,1-0.447,1-1S53.553,45,53,45z M48,50H38v-8h10V50z"/>
+			</g>
+			
+			</svg>
+		</li>
+		<li>
+			<a href="[[~29]]">
+				<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 			viewBox="0 0 206.462 206.462" style="enable-background:new 0 0 206.462 206.462;" xml:space="preserve">
+				<path d="M177.003,206.424h-21.471c-2.209,0-4-1.791-4-4v-18.021H54.93v18.021c0,2.209-1.791,4-4,4H29.459c-2.209,0-4-1.791-4-4
+					v-18.021H12.668c-2.209,0-4-1.791-4-4v-50.264c0-10.119,7.227-18.582,16.792-20.496V98.807c0-21.179,17.23-38.409,38.408-38.409
+					h78.727c21.179,0,38.408,17.23,38.408,38.409v10.835c9.564,1.915,16.791,10.377,16.791,20.496v50.264c0,2.209-1.791,4-4,4h-12.791
+					v18.021C181.003,204.633,179.212,206.424,177.003,206.424z M159.532,198.424h13.471v-14.021h-13.471V198.424z M33.459,198.424H46.93
+					v-14.021H33.459V198.424z M177.003,176.403h12.791v-46.264c0-7.114-5.787-12.902-12.901-12.902H29.569
+					c-7.114,0-12.902,5.788-12.902,12.902v46.264H177.003z M155.494,109.237h17.509v-10.43c0-16.768-13.641-30.409-30.408-30.409H63.867
+					c-16.767,0-30.408,13.641-30.408,30.409v10.43h81.345c1.869-9.524,10.281-16.732,20.345-16.732S153.625,99.713,155.494,109.237z
+					 M123.06,109.237h24.178c-1.681-5.067-6.465-8.732-12.089-8.732S124.741,104.17,123.06,109.237z M166.267,165.841
+					c-8.125,0-14.735-6.61-14.735-14.736c0-8.125,6.61-14.735,14.735-14.735s14.735,6.61,14.735,14.735
+					C181.003,159.231,174.392,165.841,166.267,165.841z M166.267,144.37c-3.714,0-6.735,3.021-6.735,6.735
+					c0,3.714,3.021,6.736,6.735,6.736s6.735-3.021,6.735-6.736C173.003,147.392,169.981,144.37,166.267,144.37z M140.954,165.841H65.507
+					c-2.209,0-4-1.791-4-4s1.791-4,4-4h75.446c2.209,0,4,1.791,4,4S143.163,165.841,140.954,165.841z M40.194,165.841
+					c-8.125,0-14.735-6.61-14.735-14.736c0-8.125,6.61-14.735,14.735-14.735s14.735,6.61,14.735,14.735
+					C54.93,159.231,48.319,165.841,40.194,165.841z M40.194,144.37c-3.714,0-6.735,3.021-6.735,6.735c0,3.714,3.021,6.736,6.735,6.736
+					s6.735-3.021,6.735-6.736C46.93,147.392,43.908,144.37,40.194,144.37z M140.954,144.37H65.507c-2.209,0-4-1.791-4-4s1.791-4,4-4
+					h75.446c2.209,0,4,1.791,4,4S143.163,144.37,140.954,144.37z M202.459,50.04c-0.52,0-1.048-0.102-1.558-0.317l-97.67-41.34
+					L5.56,49.722c-2.035,0.862-4.382-0.091-5.243-2.125c-0.861-2.034,0.09-4.382,2.125-5.243l99.23-42
+					c0.509-0.215,1.038-0.317,1.557-0.317c0.001,0,0.001,0,0.002,0c0,0,0.001,0,0.002,0c0.481,0,0.97,0.087,1.443,0.271
+					c0.044,0.017,0.087,0.034,0.13,0.053l99.214,41.993c2.034,0.861,2.985,3.208,2.124,5.243
+					C205.499,49.123,204.017,50.04,202.459,50.04z"/>
+				</svg>
+			</a>
+		</li>
+	</ul>
+</div>
+
+[[$reload]]
+
+[[$footer2]]
+	</div>
+						<!--|||||||||||||||||||||||| magnificPopup ||||||||||||||||||||||||-->
+					<div id="popup-modal-window" class="zoom-anim-dialog mfp-hide room-itam">
+						<div  id="" class="row">
+							<div class="mix-one col-md-12 col-sm-12">
+								<span></span><span class="number-popup namber"><span></span></span>
+								<br>
+								<span class="price-popup price"></span> руб. / <span class="status-popup"></span>
+							</div>
+							<div class="mix-one col-md-offset-1 col-md-6 col-sm-6 col-sm-12">
+								<img src="assets/images/rooms/room-1.png" alt="" class="img-responsive plan">
+							</div>
+							<div class="col-md-4 col-sm-12 col-sm-6">
+								<ul class="apart-deck-one">
+									<li>Этаж: <span class="floor-popup"></span></li>
+									<li>Площадь: <span class="area-popup"><sup><small>2</small></span></li>
+									<li>Количество комнат: <span class="rooms-popup"></span></li>
+								</ul>
+								<button id="" onclick='parkingPage()' class="custom-btn btn-3"><span>Выбрать паркинг</span></button>
+							</div>
+							<div class="col-md-10 col-md-offset-1 col-sm-12 center">
+								<h5>[[+titelForm]]</h5>
+								<div class="col-md-12 col-sm-12 right">
+									<form class="phone form-phone right">
+										<input type="hidden" name="event" value="[[+statusFilter:is=`1`:then=`order`:else=`kvartira`]]" />
+										<input type="hidden" name="project_name" value="Legato">
+										<input type="hidden" name="admin_email" value="[[++email]]">
+										<input type="hidden" name="form_subject" value="Квартира №[[+number]]">
+										<input type="text" name="Имя" placeholder="Ваше имя" required><span class="hidden-xs hidden-sm w30px"></span>
+										<input type="text" name="Телефон" placeholder="Ваш телефон" required>
+										<input type="hidden" name="Этаж" value="[[+floor]]">
+										<input type="hidden" name="Цена" value="[[+price]]">
+										<input type="hidden" name="Статус" value="[[+status]]"><br>
+										<input style="width: auto;" type="checkbox" name="ОПД" value="Да" required><small> Я согласен с <a href="http://legato-dom.ru/Согласие%20на%20обработку%20персональных%20данных.pdf">условиями</a> обработки моих персональных данных.</small><br>
+										<button class="custom-btn btn-4"><span>Отправить</span></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+		</body>
+			</html>
