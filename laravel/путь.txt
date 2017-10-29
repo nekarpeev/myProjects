@@ -1,0 +1,17 @@
+C:/wamp64/www/myGitRepository/myProjects/laravel
+
+
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=puhov_db
+DB_USERNAME=root
+DB_PASSWORD=''
+
+
+DB_CONNECTION=mysql
+DB_HOST=188.234.43.0
+DB_PORT=3306
+DB_DATABASE=nekarpfd_laravel
+DB_USERNAME=nekarpfd_laravel
+DB_PASSWORD='urezav08'

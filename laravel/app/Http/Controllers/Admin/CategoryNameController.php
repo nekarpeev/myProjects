@@ -15,7 +15,7 @@ class CategoryNameController extends Controller {
      */
     public function index() {
         return view('admin.categories.index', [
-            'categories' => CategoryName::paginate(10)
+            'categories' => CategoryName::paginate(100)
         ]);
     }
 
@@ -25,10 +25,11 @@ class CategoryNameController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
+        echo 'create';
         return view('admin.categories.create', [
             'category'   => [],
             'categories' => CategoryName::with('children')->where('parent_id', '0')->get(),
-            'delimitr'   => ''
+            'delimiter'   => ''
         ]);
     }
 
@@ -39,48 +40,60 @@ class CategoryNameController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        echo 'store';
+        CategoryName::create($request->all());
+        return redirect()->route('admin.category.index');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\CategoryName  $categoryName
+     * @param  \App\CategoryName  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoryName $categoryName) {
-        //
+    public function show(CategoryName $category) {
+        echo 'show';
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\CategoryName  $categoryName
+     * @param  \App\CategoryName  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoryName $categoryName) {
-        //
+    public function edit(CategoryName $category) {
+      echo 'edit';
+      return view('admin.categories.edit', [
+          'category'   => $category,
+          'categories' => CategoryName::with('children')->where('parent_id', '0')->get(),
+          'delimiter'   => ''
+      ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CategoryName  $categoryName
+     * @param  \App\CategoryName  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoryName $categoryName) {
-        //
+    public function update(Request $request, CategoryName $category) {
+      echo 'update';
+      $category->update($request->except('slug'));
+      return redirect()->route('admin.category.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\CategoryName  $categoryName
+     * @param  \App\CategoryName  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoryName $categoryName) {
-        //
+    public function destroy(CategoryName $category) {
+
+        $category->delete();
+        return redirect()->route('admin.category.index');
     }
 
 }

@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/resources/views/admin/dashboard.blade.php</file>
+            <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/resources/views/admin/categories/partials/categories.php</file>
             <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/resources/views/admin/categories/partials/form.blade.php</file>
             <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/app/Http/Controllers/Admin/CategoryNameController.php</file>
             <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/app/Models/CategoryName.php</file>
-            <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/resources/views/admin/components/breadcrumb.blade.php</file>
             <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/routes/web.php</file>
             <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/resources/views/admin/categories/create.blade.php</file>
-            <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/resources/views/admin/layouts/app_admin.blade.php</file>
-            <file>file:/C:/wamp64/www/myGitRepository/myProjects/laravel/app/Http/Controllers/Admin/DashboardController.php</file>
         </group>
     </open-files>
 </project-private>

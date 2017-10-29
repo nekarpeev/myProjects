@@ -179,6 +179,8 @@ return [
 
         //Laravel 4 Debugbar
         Barryvdh\Debugbar\ServiceProvider::class,
+        // Ckeditor
+        Unisharp\Ckeditor\ServiceProvider::class,   
 
     ],
 
