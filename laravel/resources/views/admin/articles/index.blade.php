@@ -30,7 +30,7 @@
                @if ($article->id == $categoryable->categoryable_id and $categoryable->categoryable_type == 'App\Models\Article')
                 @foreach ($categories as $category)
                   @if ($categoryable->category_name_id == $category->id)
-                    {{$category->title}} 
+                    {{$category->title}}
                   @endif
                 @endforeach
               @endif

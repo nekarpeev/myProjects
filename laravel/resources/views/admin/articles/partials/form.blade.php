@@ -50,7 +50,7 @@
 {{-- <script>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
-  console.log($('textarea').attr('id'));
+  //console.log($('textarea').attr('id'));
 
   //$('textarea').ckeditor();
   CKEDITOR.replace( 'description_short' );

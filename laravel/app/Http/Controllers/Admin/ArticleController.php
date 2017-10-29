@@ -21,12 +21,14 @@ class ArticleController extends Controller
 
       $categoryables = DB::table('categoryables')->get();
 
-
+      //return view('test');
       return view('admin.articles.index', [
         'articles' => Article::orderBy('created_at', 'desc')->paginate(10),
         'categoryables' => $categoryables,
-        'categories' => CategoryName::get(),  
+        'categories' => CategoryName::get(),
       ]);
+
+
     }
 
     /**
