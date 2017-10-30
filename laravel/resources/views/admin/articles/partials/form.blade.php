@@ -47,12 +47,3 @@
 <hr />
 
 <input class="btn btn-primary" type="submit" value="Сохранить">
-{{-- <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-  //console.log($('textarea').attr('id'));
-
-  //$('textarea').ckeditor();
-  CKEDITOR.replace( 'description_short' );
-  CKEDITOR.replace( 'description' );
-</script> --}}

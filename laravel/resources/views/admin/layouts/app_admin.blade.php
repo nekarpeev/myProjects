@@ -14,21 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="{{asset('vendor_ghost/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
 </head>
 <body>
-  {{-- <label for=""> LABEL </label>
-  <textarea name="test" id="test">
-
-  </textarea>
-
-
-
-  <script>
-  CKEDITOR.replace( 'test' );
-  </script> --}}
-
-
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -101,11 +88,9 @@
     </div>
 
     <!-- Scripts -->
+    <script src="{{ url('http://localhost/laravel/resources/assets/js/app.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-
-
-    {{-- <script src="{{ asset('vendor_ghost/unisharp/laravel-ckeditor/ckeditor.js') }}"></script> --}}
-
+    <script src="{{ asset('vendor_ghost/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
 
 </body>
 </html>
