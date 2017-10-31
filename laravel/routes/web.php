@@ -12,9 +12,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'IndexController@index' )->name('blog.index');
+
 
 
 
@@ -27,19 +27,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/test', 'testConrtoller@index');
 //Route::resource('/test', 'test_controller_res', ['as'=>'test']);
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function() {
-  Route::get('admin', 'DashboardController@dashboard')->name('admin.index');
-  Route::resource('/category', 'CategoryNameController', ['as'=>'admin']);
-  Route::resource('/article', 'ArticleController', ['as'=>'admin']);
-} );
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+    Route::get('admin', 'DashboardController@dashboard')->name('admin.index');
+    Route::resource('/category', 'CategoryNameController', ['as' => 'admin']);
+    Route::resource('/article', 'ArticleController', ['as' => 'admin']);
+});
 
 
-Route::get('/clear', function() {
+Route::get('/clear', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:cache');
     Artisan::call('view:clear');
-	  Artisan::call('route:clear');
-	// Artisan::call('backup:clean');
+    Artisan::call('route:clear');
+    // Artisan::call('backup:clean');
     return "Кэш очищен.";
 
 })->name('clear');

@@ -8,7 +8,7 @@
     @slot('title') Редактирование статьи @endslot
     @slot('re_title') {{$article->title}} @endslot
     @slot('parent') Главная @endslot
-    @slot('parent_1') Категории @endslot
+    @slot('parent_1') Статьи @endslot
     @slot('active') {{$article->title}} @endslot
 
   @endcomponent

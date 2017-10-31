@@ -63,7 +63,7 @@ class CategoryNameController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(CategoryName $category) {
-      echo 'edit';
+      echo 'Category edit';
       return view('admin.categories.edit', [
           'category'   => $category,
           'categories' => CategoryName::with('children')->where('parent_id', '0')->get(),

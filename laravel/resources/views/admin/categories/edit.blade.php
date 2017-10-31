@@ -4,7 +4,7 @@
 
 <div class="container">
 
-  @component('admin.components.breadcrumb')
+  @component('admin.components.breadcrumb', ['custom_URL' => 'category'])
     @slot('title') Редактирование категории @endslot
     @slot('re_title') {{$category->title}} @endslot
     @slot('parent') Главная @endslot
@@ -19,13 +19,13 @@
 
   <hr />
 
-  <form class="form-horizontal" action="{{route('admin.article.update', $category)}}" method="POST" >
+  <form class="form-horizontal" action="{{route('admin.category.update', $category)}}" method="POST" >
     <input type="hidden" name="modified_by" value="{{Auth::id()}}"/>
     {{ method_field('PUT') }}
     {{ csrf_field() }}
 
     {{-- Form include --}}
-    @include('admin.articles.partials.form')
+    @include('admin.categories.partials.form')
 
 
 

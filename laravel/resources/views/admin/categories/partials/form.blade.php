@@ -1,3 +1,5 @@
+<input class="btn btn-primary" type="submit" value="Сохранить">
+<hr />
 <label for="">Статус</label>
 <select class="form-control" name="published">
   @if (isset($category->id))
@@ -21,6 +23,6 @@
   @include('admin.categories.partials.categories', ['categories' => $categories])
 </select>
 
-<hr />
 
-<input class="btn btn-primary" type="submit" value="Сохранить">
+
+

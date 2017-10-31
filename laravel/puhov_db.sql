@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 29 2017 г., 18:15
+-- Время создания: Окт 31 2017 г., 00:21
 -- Версия сервера: 5.7.14
 -- Версия PHP: 5.6.25
 
@@ -69,8 +69,8 @@ INSERT INTO `1111articles` (`id`, `category`, `title`, `text`, `id_category`, `p
 CREATE TABLE `articles` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description_short` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_short` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `show_image` tinyint(1) DEFAULT NULL,
@@ -90,10 +90,10 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `description_short`, `description`, `slug`, `image`, `show_image`, `meta_title`, `meta_description`, `meta_keyword`, `published`, `viewed`, `created_by`, `modified_by`, `created_at`, `updated_at`) VALUES
-(3, 'nikita post', 'short desc', 'full desc full desc full desc full desc', 'nikita-post', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2017-10-28 17:10:49', '2017-10-28 17:10:49'),
-(4, 'post 1', 'nikita post', 'nikita postnikita postnikita postnikita post', 'post-1', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, '2017-10-28 17:53:43', '2017-10-28 17:53:43'),
-(5, 'post 2', 'qqqqqq', 'wwwwww', 'post-2', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2017-10-28 17:56:40', '2017-10-28 17:56:40'),
-(8, 'art art 1', 'Краткое описание', 'Описание', 'art-art-1', NULL, NULL, 'Мета заголовок', 'Мета описание', 'Слова, ключ, тест', 0, NULL, 1, NULL, '2017-10-28 20:25:29', '2017-10-28 20:25:29');
+(5, 'Что общего у разработки программного обеспечения с разработкой настольных игр?', 'Что общего у разработки программного обеспечения с разработкой настольных игр? Об этом лучше всех знает&nbsp;<strong>Сергей&nbsp;<a href="https://habrahabr.ru/users/milfgard/">Milfgard</a>&nbsp;Абдульманов</strong>&nbsp;который учился по специальности &laquo;математик-системный программист&raquo; и владел IT-компанией, а сейчас известен читателям Хабра постами в&nbsp;<a href="https://habrahabr.ru/company/mosigra">блоге</a>&nbsp;компании &laquo;Мосигра&raquo;.</p>', '<p>Что общего у разработки программного обеспечения с разработкой настольных игр? Об этом лучше всех знает&nbsp;<strong>Сергей&nbsp;<a href="https://habrahabr.ru/users/milfgard/">Milfgard</a>&nbsp;Абдульманов</strong>&nbsp;который учился по специальности &laquo;математик-системный программист&raquo; и владел IT-компанией, а сейчас известен читателям Хабра постами в&nbsp;<a href="https://habrahabr.ru/company/mosigra">блоге</a>&nbsp;компании &laquo;Мосигра&raquo;.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Он будет завершать конференцию Joker своим&nbsp;<a href="https://jokerconf.com/2017/talks/5q8bvkqzy40q0g6qeuuwak/">кейноутом</a>&nbsp;&laquo;Как мы расширяли бутылочное горлышко разработки&raquo;, а в преддверии этой конференции мы задали ему ещё ряд вопросов о том, чем две индустрии похожи &mdash; и чем различаются.</p>\r\n\r\n<p><strong>Сергей</strong>: Короче, правильнее будет анонсировать тезис &laquo;как мы люто облажались&raquo;. Это чтобы вы не думали, что мы там новый аджайл придумали или что-то ещё. А ещё у нас тестировщики чуть не набили разработчикам морду. В частном порядке. Но это отдельная песня.</p>', 'post-2', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, 1, '2017-10-28 17:56:40', '2017-10-30 20:04:42'),
+(9, 'Про бэкапы, черную пятницу и коммуникации между людьми', '<p>13 октября мы провели вторую конференцию сообщества&nbsp;<a href="http://uptime.community/">Uptime</a>. В этот раз дата проведения выпала на пятницу 13-е, поэтому основная тема &mdash; аварии, и как с ними справляться. Это первый из серии постов про доклады с прошедшей конференции.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>У меня есть три страшные истории о том, как по нашей вине все сломалось, как мы это чинили, и что мы делаем теперь, чтобы это не повторилось.</p>', '<h1>Масштаб: количество алертов</h1>\r\n\r\n<p>13 октября мы провели вторую конференцию сообщества&nbsp;<a href="http://uptime.community/">Uptime</a>. В этот раз дата проведения выпала на пятницу 13-е, поэтому основная тема &mdash; аварии, и как с ними справляться. Это первый из серии постов про доклады с прошедшей конференции.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>У меня есть три страшные истории о том, как по нашей вине все сломалось, как мы это чинили, и что мы делаем теперь, чтобы это не повторилось.</p>\r\n\r\n<p>Мы работаем с 2008 года, нас сейчас 75 человек (Иркутск, Питер, Москва), мы занимаемся круглосуточной технической поддержкой, системным администрированием и девопсом для веб сайтов по всему миру. У нас 300 клиентов и 2000 серверов на поддержке.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Основная наша работа заключается в том, что если происходит какая-то проблема, мы должны за 15 минут прийти и исправить ее.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>В 2010 году было порядка 450 алертов в месяц в пике.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Эта маленькая красная линия &mdash; это то, сколько алертов у нас было до конца 2012 года.<br />\r\nВ 2015 году &mdash; в пике доходило до 100 000 алертов в месяц.<br />\r\nСейчас их приблизительно 130 000 &mdash; 140 000.</p>', 'pro-bekapy-chernuyu-pyatnitsu-i-kommunikatsi', NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, '2017-10-30 19:50:59', '2017-10-30 20:00:57'),
+(10, 'Transformer — новая архитектура нейросетей для работы с последовательностями', 'Необходимое предисловие: я решил попробовать современный формат несения света в массы и пробую стримить на YouTube про deep learning.   В частности, в какой-то момент меня попросили рассказать про attention, а для этого нужно рассказать и про машинный перевод, и про sequence to sequence, и про применение к картинкам, итд итп. В итоге получился вот такой стрим на час:', 'Необходимое предисловие: я решил попробовать современный формат несения света в массы и пробую стримить на YouTube про deep learning.   В частности, в какой-то момент меня попросили рассказать про attention, а для этого нужно рассказать и про машинный перевод, и про sequence to sequence, и про применение к картинкам, итд итп. В итоге получился вот такой стрим на час:Необходимое предисловие: я решил попробовать современный формат несения света в массы и пробую стримить на YouTube про deep learning.   В частности, в какой-то момент меня попросили рассказать про attention, а для этого нужно рассказать и про машинный перевод, и про sequence to sequence, и про применение к картинкам, итд итп. В итоге получился вот такой стрим на час:Необходимое предисловие: я решил попробовать современный формат несения света в массы и пробую стримить на YouTube про deep learning.   В частности, в какой-то момент меня попросили рассказать про attention, а для этого нужно рассказать и про машинный перевод, и про sequence to sequence, и про применение к картинкам, итд итп. В итоге получился вот такой стрим на час:', 'transformer-novaya-arkhitektura-neyroset', NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, '2017-10-30 20:03:46', '2017-10-30 20:19:11'),
+(11, 'Google Analytics API для маркетолога на практическом примере', 'Привет! По мотивам реализации одной из задач по анализу источников трафика решил написать статью-инструкцию для маркетологов. Это случай, когда маркетологам без Google Analytics API не обойтись. Статья пишется на благо веб-разработчикам, чтобы маркетологи не отвлекали по «всякой фигне».', 'Привет! По мотивам реализации одной из задач по анализу источников трафика решил написать статью-инструкцию для маркетологов. Это случай, когда маркетологам без Google Analytics API не обойтись. Статья пишется на благо веб-разработчикам, чтобы маркетологи не отвлекали по «всякой фигне».\r\n\r\nЗнакомимся с технологией на практическом примере. Поехали!\r\n\r\nЗадача\r\n\r\nЕсть около 150 000 пользователей, которые зарегистрированы на сайте. Нужно понять, из каких источников изначально пришли 1500 пользователей, которые купили продукт в октябре.\r\nДля привлечения лидов используется модель фримиум, цикл продажи может быть до 1 года.\r\n\r\nИз дополнительных настроек, на этапе интеграции Google Analytics, мы подключили UserID и дублировали его значение в Custom Dimension 1 (Scope: User), чтобы с UserID можно было взаимодействовать в отчетах.', 'google-analytics-api-dlya-marketologa-na', NULL, NULL, NULL, NULL, NULL, 0, NULL, 1, NULL, '2017-10-30 20:18:33', '2017-10-30 20:18:33');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,9 @@ CREATE TABLE `categoryables` (
 --
 
 INSERT INTO `categoryables` (`category_name_id`, `categoryable_id`, `categoryable_type`) VALUES
-(10, 8, 'App\\Models\\Article');
+(43, 10, 'App\\Models\\Article'),
+(40, 9, 'App\\Models\\Article'),
+(44, 5, 'App\\Models\\Article');
 
 -- --------------------------------------------------------
 
@@ -163,10 +165,12 @@ CREATE TABLE `category_names` (
 --
 
 INSERT INTO `category_names` (`id`, `title`, `slug`, `parent_id`, `published`, `created_by`, `modified_by`, `created_at`, `updated_at`) VALUES
-(37, 'vlad', 'vlad', 35, 1, NULL, NULL, '2017-10-28 10:16:24', '2017-10-28 10:42:42'),
-(10, 'maks', 'whos', 37, 1, NULL, NULL, '2017-10-26 17:22:23', '2017-10-28 10:43:03'),
-(36, 'guz', 'guz', 0, 0, NULL, NULL, '2017-10-28 10:02:26', '2017-10-28 10:02:26'),
-(35, 'nikita', 'nikita', 0, 0, NULL, NULL, '2017-10-28 10:02:13', '2017-10-28 10:02:13');
+(40, 'IT-инфраструктура', 'it-infrastruktura', 0, 1, 1, NULL, '2017-10-30 19:35:59', '2017-10-30 19:35:59'),
+(42, 'Системное администрирование', 'sistemnoe-administrirovanie', 40, 1, 1, NULL, '2017-10-30 19:44:05', '2017-10-30 19:44:05'),
+(45, 'Интернет-маркетинг', 'internet-marketing', 0, 1, 1, NULL, '2017-10-30 19:46:53', '2017-10-30 19:46:53'),
+(44, 'Управление проектами', 'upravlenie-proektami', 0, 1, 1, NULL, '2017-10-30 19:44:58', '2017-10-30 19:44:58'),
+(43, 'Машинное обучение', 'mashinnoe-obuchenie', 0, 1, 1, NULL, '2017-10-30 19:44:21', '2017-10-30 19:44:21'),
+(41, 'Серверное администрирование', 'servernoe-administrirovanie', 40, 1, 1, 1, '2017-10-30 19:36:46', '2017-10-30 19:42:16');
 
 -- --------------------------------------------------------
 
@@ -253,7 +257,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'nikita', 'revers414@mail.ru', '$2y$10$p.ROclUoUsEB0Nlj/LElv.qWExcpraiSOOm2O10UJlrVFaA9CV/V2', 'b6bBiz3tnwYOaHbAIiCzujjCh7YiLmx31SlCFmFBBHa0h0aXhj8xmTRI2ekG', '2017-10-01 11:43:23', '2017-10-01 11:43:23');
+(1, 'nikita', 'revers414@mail.ru', '$2y$10$p.ROclUoUsEB0Nlj/LElv.qWExcpraiSOOm2O10UJlrVFaA9CV/V2', '1PfuFWKavvoYS9jc10Ctnjk4ZX9V6EJ65w67FXI7LWRlG7eFo7vZ8rVYyPxR', '2017-10-01 11:43:23', '2017-10-01 11:43:23'),
+(2, 'rev', 'nekarpeev@yandex.ru', '$2y$10$1ajIZlkog8Gs2/ubK6A2yeI3RjK1V7HV/I/cH4BVEWrmAUZ6l.s7q', 'tbNXuocacKG71JD4yRukp0S6mJxS8CgyuRYErdk2aAzq4N3t5h7HXiiK24oK', '2017-10-30 16:26:43', '2017-10-30 16:26:43');
 
 --
 -- Индексы сохранённых таблиц
@@ -322,7 +327,7 @@ ALTER TABLE `1111articles`
 -- AUTO_INCREMENT для таблицы `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT для таблицы `article_category`
 --
@@ -332,7 +337,7 @@ ALTER TABLE `article_category`
 -- AUTO_INCREMENT для таблицы `category_names`
 --
 ALTER TABLE `category_names`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT для таблицы `items`
 --
@@ -347,7 +352,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
