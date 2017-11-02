@@ -13,13 +13,15 @@
 */
 
 
-Route::get('/', 'IndexController@index' )->name('blog.index');
-
-
-
+//Route::get('/', function() {
+//    return view('blog.static.index');
+//});
+Route::group(['namespace' => 'Blog'], function () {
+    Route::any('/', 'OutArticleController@index')->name('blog.articles.index');
+    Route::any('/articles/{article}', 'OutArticleController@show')->name('blog.articles.show');
+});
 
 Route::get('post', ['as' => 'post', 'uses' => 'PostController@index']);
-
 
 Auth::routes();
 

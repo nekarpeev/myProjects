@@ -75,7 +75,6 @@
                         </div>
                     </div>
 
-
                     <div class="my-detail">
 
                         <div class="white-spacing">
@@ -95,41 +94,18 @@
             </div>
             <!-- About Me (Left Sidebar) End -->
 
-
             <!-- Blog Post (Right Sidebar) Start -->
             <div class="col-md-9">
                 <div class="col-md-12 page-body">
                     <div class="row">
 
-
                         <div class="sub-title">
                             <h2>My Blog</h2>
                             <a href="contact.html"><i class="icon-envelope"></i></a>
                         </div>
-
-
                         <div class="col-md-12 content-page">
-                        @forelse($articles as $article)
-                            {{!$article->title = strip_tags($article->title)}}
-                            {{!$article->description_short = strip_tags($article->description_short)}}
 
-                            <!-- Blog Post Start -->
-                                <div class="col-md-12 blog-post">
-                                    <div class="post-title">
-                                        <a href="#"><h1>{{$article->title}}</h1></a>
-                                    </div>
-                                    <div class="post-info">
-                                        <span>November 23, 2016 / by <a href="#" target="_blank">Alex Parker</a></span>
-                                    </div>
-                                    <p>{{$article->description_short}}</p>
-                                    <a href="#"
-                                       class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
-                                </div>
-
-                            @empty
-                                Нет публикаций
-
-                        @endforelse
+                        @yield('article_list')
                         <!-- Blog Post End -->
 
 
@@ -141,6 +117,8 @@
                         </div>
 
                     </div>
+
+                    @yield('article_show')
 
 
                     <!-- Subscribe Form Start -->
