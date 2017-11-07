@@ -47,9 +47,9 @@
 
 
 <!-- Preloader Start -->
-<div class="preloader">
-    <div class="rounder"></div>
-</div>
+{{--<div class="preloader">--}}
+    {{--<div class="rounder"></div>--}}
+{{--</div>--}}
 <!-- Preloader End -->
 
 
@@ -100,21 +100,13 @@
                     <div class="row">
 
                         <div class="sub-title">
-                            <h2>My Blog</h2>
+                            <a href="{{route('blog.articles.index')}}"><h2>My Blog</h2></a>
                             <a href="contact.html"><i class="icon-envelope"></i></a>
                         </div>
-                        <div class="col-md-12 content-page">
 
+                        <!-- Blog Post Start -->
                         @yield('article_list')
                         <!-- Blog Post End -->
-
-
-                            <div class="col-md-12 text-center">
-                                <a href="javascript:void(0)" id="load-more-post" class="load-more-button">Load</a>
-                                <div id="post-end-message"></div>
-                            </div>
-
-                        </div>
 
                     </div>
 
