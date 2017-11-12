@@ -1,29 +1,26 @@
 <?php
 //Product/view
-    include_once(ROOT . '/view/layouts/header_pro.php');
+    include_once(ROOT . '/view/layouts/header.php');
 ?>
     <section>
         <div class="container">
             <div class="row">
                 <!--            Загружаем категории-->
-                <?php include_once(ROOT . '/view/catalog/category.php');
-
-                ?>
-
+                <?php include_once(ROOT . '/view/components/category.php'); ?>
                 <div class="col-sm-9 padding-right">
                     <div class="product-details"><!--product-details-->
                         <div class="row">
                             <div class="col-sm-5">
                                 <div class="view-product">
                                     <a href="/e-shopper/product/<?php echo $productItem['id']; ?>">
-                                        <img src="../template/images/home/product1.jpg" alt=""/>
+                                        <img src="template/images/home/product1.jpg" alt=""/>
                                     </a>
                                 </div>
                             </div>
                             <div class="col-sm-7">
                                 <div class="product-information"><!--/product-information-->
                                     <?php if ($productItem['is_new']): ?>
-                                        <img src="../template/images/product-details/new.jpg" class="newarrival"
+                                        <img src="template/images/product-details/new.jpg" class="newarrival"
                                              alt=""/>
                                     <?php endif; ?>
                                     <h2><?php echo $productItem['title']; ?></h2>

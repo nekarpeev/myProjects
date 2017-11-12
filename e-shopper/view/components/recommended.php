@@ -13,18 +13,8 @@
                                 foreach ($productRec[0] as $product):?>
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
-                                        
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <a href="/e-shopper/product/<?php echo $product['id'];?>"> 
-                                                <img src="template/images/home/recommend1.jpg" alt="" />
-                                                </a>
-                                                <h2><?php echo $product['price'];?></h2>
-                                                <p><a href="/e-shopper/product/<?php echo $product['id'];?>"><?php echo $product['title'];?></a></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
 
-                                        </div>
+                                        <?php include(ROOT . '/view/components/product_item.php'); ?>
                                         
                                     </div>
                                 </div>
@@ -36,18 +26,8 @@
                                  <?php foreach ($productRec[1] as $product):?>
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
-                                        
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <a href="/e-shopper/product/<?php echo $product['id'];?>"> 
-                                                <img src="template/images/home/recommend1.jpg" alt="" />
-                                                </a>
-                                                <h2><?php echo $product['price'];?></h2>
-                                                <p><a href="/e-shopper/product/<?php echo $product['id'];?>"><?php echo $product['title'];?></a></p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
 
-                                        </div>
+                                        <?php include(ROOT . '/view/components/product_item.php'); ?>
                                         
                                     </div>
                                 </div>

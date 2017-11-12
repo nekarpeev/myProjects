@@ -1,18 +1,22 @@
 <?php
-    include_once(ROOT . '/models/Category.php');
-    include_once(ROOT . '/models/Product.php');
 
     class CatalogController
     {
 
-        public function actionView()
+        public function actionView($page = 1)
         {
+            $page = preg_replace('|[^0-9]*|','',$page);
+            $page = intval($page);
+            //echo 'page: ' . $page;
 
             $categoryList = [];
             $categoryList = Category::getCategory();
 
             $productList = [];
-            $productList = Product::getProductList();
+            $productList = Product::getProductList($page);
+
+            $total = Product::getTotalProduct();
+            $pagination = new Pagination($total, $page, $limit = Product::DEFAULT_LIMIT, $index = 'page-');
 
             include_once(ROOT . '/view/catalog/view.php');
 
@@ -22,15 +26,20 @@
         //get products by category
         public function actionCategory($idCategory, $page = 1)
         {
-            echo 'page: ' . $page;
+            $page = preg_replace('|[^0-9]*|','',$page);
+            $page = intval($page);
+            //echo 'page: ' . $page;
 
             $categoryList = [];
             $categoryList = Category::getCategory();
 
             $productList = [];
-            $productList = Category::getProductListByCategory($idCategory, $page);
+            $productList = Product::getProductListByCategory($idCategory, $page);
 
-            include_once(ROOT . '/view/catalog/product_cat.php');
+            $total = Product::getTotalProductInCategory($idCategory);
+            $pagination = new Pagination($total, $page, $limit = Product::DEFAULT_LIMIT, $index = 'page-');
+
+            include_once(ROOT . '/view/catalog/product_by_category.php');
 
             die();
         }
