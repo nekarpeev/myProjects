@@ -6,6 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>Главная</title>
+        <base href="http://localhost/e-shopper/">
         <link href="template/css/bootstrap.min.css" rel="stylesheet">
         <link href="template/css/font-awesome.min.css" rel="stylesheet">
         <link href="template/css/prettyPhoto.css" rel="stylesheet">

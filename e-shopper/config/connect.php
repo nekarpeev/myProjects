@@ -1,6 +1,6 @@
 <?php 
 $host = 'localhost';
-$dbname = 'optim_test_db';
+$dbname = 'e-shopper';
 $user = 'root';
 $password = '';
 $charset = 'utf8';
@@ -13,15 +13,3 @@ $db = new PDO($dsn, $user, $password, $opt);
 
 
  ?>
-
-
-
-
-
-
-
-
-
-
-
-

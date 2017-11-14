@@ -3,8 +3,8 @@
             <div class="footer-bottom">
                 <div class="container">
                     <div class="row">
-                        <p class="pull-left">Footer © 2017</p>
-                        <p class="pull-right">Footer Footer</p>
+                        <p class="pull-left">Copyright © 2015</p>
+                        <p class="pull-right">Курс PHP Start</p>
                     </div>
                 </div>
             </div>

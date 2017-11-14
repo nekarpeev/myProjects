@@ -1,9 +1,12 @@
 <?php
-include_once(ROOT .'/models/Product.php');
-include_once(ROOT .'/models/Category.php');
 
 class ProductController {
-       
+
+    /**
+     * Action для страницы просмотра товара
+     * @param integer $idProduct <p>id товара</p>
+     */
+
     public function actionView($idProduct) {
         
         $categoryList = [];
@@ -18,20 +21,20 @@ class ProductController {
     }
     
     
-    public function actionList() {
-        
-       echo 'Просмотр списка товаров';
-         
-        $productList = array();
-        $productList = Product::getProductList();
-        echo '<pre>';
-//        $_REQUEST['title'] = $productList['title'];
-        print_r($productList);
-        echo '<pre>';
-        echo 'privet';
-        
-        return true;
-    }   
+//    public function actionList() {
+//
+//       echo 'Просмотр списка товаров';
+//
+//        $productList = array();
+//        $productList = Product::getProductList();
+//        echo '<pre>';
+////        $_REQUEST['title'] = $productList['title'];
+//        print_r($productList);
+//        echo '<pre>';
+//        echo 'privet';
+//
+//        return true;
+//    }
    
    
 }
