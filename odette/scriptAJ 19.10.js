@@ -5,7 +5,7 @@ $(function() {
         $("#price-filter").ionRangeSlider({
             hide_min_max: true,
             keyboard: true,
-            min: 5000000,
+            min: 1000000,
             max: 25000000,
             from: 5000000,
             to: 25000000,
@@ -41,6 +41,11 @@ $(function() {
 			var resetArea = $("#area-filter").data("ionRangeSlider");
 			resetPrice.reset();
 			resetArea.reset();
+			$('.room-filter-btn').removeClass('active');
+			$('.type-filter-btn').removeClass('active');
+			$('#type-2').addClass('active');
+			$('.status-filter-btn').removeClass('active');
+			
 		});
 		
 			//check active floor
@@ -58,46 +63,111 @@ $(function() {
 		});
 		
 		
+		
+			// yes active class/ no active class
+			
+			$('.room-filter-btn').click(function() {		
+			var ID = $(this).attr('id');
+			console.log(ID);
+			$('#' + ID).toggleClass('active');
+		});
+		
+		$('.type-filter-btn').click(function() {		
+			var ID = $(this).attr('id');
+			console.log(ID);
+			$('#' + ID).addClass('active');
+			$('.type-filter-btn').not('#' + ID).removeClass('active');
+		});
+		
+		$('.status-filter-btn').click(function() {		
+			var ID = $(this).attr('id');
+			console.log(ID);
+			$('#' + ID).toggleClass('active');
+		});
+
+
+
+
+			// объявляем переменные потому что можем
 			
 			var ID_polygon,
-				objectList,
 			 	floorList,
-				searchResult,
-				i = 0;
-				
+				searchResult;
+
 			var ident,
-				status;
+				price,
+				status,
+				floor,
+				area,
+				rooms;
 				
 			var	mainObjectList = [];
 				
-				
+	
+
+			//собираем свойства поэтажных квартир на странице	
 		function getMainObjectList() {
+			var i = 0;
 			
 			$(".appart").map(function(){
 				
-				ident =  $(this).attr("id");
-			    status =  $(this).data("status");
+				ident 	=  $(this).attr("id");
+				number 	=  $(this).data("number");
+				price 	=  $(this).data("price");
+			    status 	=  $(this).data("status");
+				floor 	=  $(this).data("floor");
+				area 	=  $(this).data("area");
+				rooms 	=  $(this).data("rooms");
 				
 				mainObjectList[i] = {
-					id: ident,
-					status: status
+					id: 	ident,
+					number: number,
+					price: 	price,
+					status: status,
+					floor: 	floor,
+					area: 	area,
+					rooms: 	rooms
+					
 				};
 				
 				i++;
 				
 			}).get();
 			
-			console.log(mainObjectList);
+			//console.log(mainObjectList);
 		}
 		
-			//собираем id сгенерированных квартир на странице
-		function getObjectList() {
-		
-			objectList = $(".appart").map(function(){
-			    return $(this).attr("id");
+			//собираем свойства сгенерированных квартир на странице
+		function getFilterObjectList() {
+			var i = 0;
+			var	filterObjectList = [];
+			$(".appart").map(function(){
+				
+				ident 	=  $(this).attr("id");
+				number 	=  $(this).data("number");
+				price 	=  $(this).data("price");
+			    status 	=  $(this).data("status");
+				floor 	=  $(this).data("floor");
+				area 	=  $(this).data("area");
+				rooms 	=  $(this).data("rooms");
+				
+				filterObjectList[i] = {
+					id: 	ident,
+					number: number,
+					price: 	price,
+					status: status,
+					floor: 	floor,
+					area: 	area,
+					rooms: 	rooms
+					
+				};
+				
+				i++;
+				
 			}).get();
-			console.log(objectList);
-
+			console.log('Перезапуск: ');
+			console.log(filterObjectList);
+			return filterObjectList;
 		}
 			//собираем data квартир на поэтажном плане
 		function getFloorList() {
@@ -110,7 +180,7 @@ $(function() {
 		}
 			console.log('Объект');
 			getMainObjectList();
-			getObjectList();
+			getFilterObjectList();
 			getFloorList();
 			
 			 //ищем совпадения отфильтрованных квартир на поэтажном плане
@@ -122,6 +192,7 @@ $(function() {
 							//console.log(key + ': id-appart-'+ value + '; ' + mainObjectList[key].id);
 							$(".legato-class-80").addClass('my-ultra-class');
 							$("#polygon-" + value).attr('data-status', mainObjectList[key].status);
+							
 						}
 					}
 				});
@@ -129,83 +200,90 @@ $(function() {
 		
 			searchInObjectList();
 			
-				// установим обработчик события hover, элементу с классом legato-class-80
-		$('.legato-class-80').hover(
+			//модальное окно поэтажный план, присваиваем значение объекту
+		$('.legato-class-80').click(function() {
+				
+				var ID = $(this).data('ident');
+					for(var key in mainObjectList) {
+						if('id-appart-'+ ID == mainObjectList[key].id) {
+							//console.log(key + ': id-appart-'+ value + '; ' + mainObjectList[key].id);
+							$('.number-popup').html('№' + mainObjectList[key].number);
+							$('.price-popup').html(mainObjectList[key].price);
+							$('.status-popup').html(mainObjectList[key].status);
+							$('.floor-popup').html(mainObjectList[key].floor);
+							$('.area-popup').html(mainObjectList[key].area);
+							$('.rooms-popup').html(mainObjectList[key].rooms);
+						}
+					}
+
+			$.magnificPopup.open({
+				items: {
+					src: "#popup-modal-window"
+				}
+			});
+			
+			$('.burger-maks').addClass('active-maks');
+		});	
+		
+		
+			//модальное окно отфильтрованные объекты, присваиваем значение объекту
+			function bugAjax() {
+		$('.appart').click(function() {
+					
+				var filterObjectList = getFilterObjectList();
+				
+					console.log(filterObjectList);
+					
+				var ID = $(this).attr('id');
+					for(var key in filterObjectList) {
+						if(ID == filterObjectList[key].id) {
+							//console.log(key + ': id-appart-'+ value + '; ' + mainObjectList[key].id);
+							$('.number-popup').html('№' + filterObjectList[key].number);
+							$('.price-popup').html(filterObjectList[key].price);
+							$('.status-popup').html(filterObjectList[key].status);
+							$('.floor-popup').html(filterObjectList[key].floor);
+							$('.area-popup').html(filterObjectList[key].area);
+							$('.rooms-popup').html(filterObjectList[key].rooms);
+						}
+					}
+
+			$.magnificPopup.open({
+				items: {
+					src: "#popup-modal-window"
+				}
+			});
+			
+			$('.burger-maks').addClass('active-maks');
+		});	
+		
+	}
+	
+		bugAjax();
+				// установим обработчик события mousemove, элементу с классом legato-class-80
+		$('.legato-class-80').mousemove(
 			function(pos){
 			  ID_polygon = $(this).data('ident');
 				
-			  $.each(objectList, function(index, value) {
+			  $.each(mainObjectList, function(index, value) {
 
-				if(value == 'id-appart-' + ID_polygon) {
+				if(value.id == 'id-appart-' + ID_polygon) {
 					setTimeout(function() {
-					console.log('value: ' + value);
-					console.log('ID_polygon: id-appart-' + ID_polygon);
-					$('#polygon-' + ID_polygon).addClass('my-super-class');
-					
+					//console.log('value: ' + value);
+					//console.log('ID_polygon: id-appart-' + ID_polygon);
 					//console.log(pos.pageX + pos.pageY);
-					
 					var showStatus = $('#polygon-' + ID_polygon).data('status');
 					console.log(showStatus);
       				$("#show-status-object").html(showStatus).css('left',(pos.pageX+10)+'px').css('top',(pos.pageY+10)+'px');
 					$("#show-status-object").show();
 					
-					}, 1000);
+					}, 200);
 				}	
 			});
-		},
-			function(){
-				$(".legato-class-80").removeClass('my-super-class');
-				$("#show-status-object").hide();
-			});
+		}).mouseleave(function() {
+			$("#show-status-object").hide();
+		});
 		
 		
-		
-		$("#sold").hide();
-  $("#free").hide();
-  $("#reserved").hide();
-  $("#office-4").hide();
-  $(document).ready(function(){
-    $(".room-sold").mousemove(       
-      function (pos) { 
-    $("#sold").show();
-      $("#sold").css('left',(pos.pageX+10)+'px').css('top',(pos.pageY+10)+'px');          
-      }    
-    ).mouseleave(function() {
-      $("#sold").hide(); 
-    });
-  });
-  $(document).ready(function(){
-    $(".room-free").mousemove(       
-      function (pos) { 
-    $("#free").show();
-      $("#free").css('left',(pos.pageX+10)+'px').css('top',(pos.pageY+10)+'px');          
-      }    
-    ).mouseleave(function() {
-      $("#free").hide(); 
-    });
-  });
-  $(document).ready(function(){
-    $(".room-reserved").mousemove(       
-      function (pos) { 
-    $("#reserved").show();
-      $("#reserved").css('left',(pos.pageX+10)+'px').css('top',(pos.pageY+10)+'px');          
-      }    
-    ).mouseleave(function() {
-      $("#reserved").hide(); 
-    });
-  });
-  $(document).ready(function(){
-    $("#legato-office-4").mousemove(       
-      function (pos) { 
-    $("#office-4").show();
-      $("#office-4").css('left',(pos.pageX+10)+'px').css('top',(pos.pageY+10)+'px');          
-      }    
-    ).mouseleave(function() {
-      $("#office-4").hide(); 
-    });
-  });
-			
-			
 
     //MODx pdoResources Ajax Filter
     //Filter Settings
@@ -242,9 +320,11 @@ $(function() {
             }, fadeSpeed);
         }).done(function() {
         	
-	        setTimeout(function() {
-				getObjectList();
+	        	setTimeout(function() {
 				searchInObjectList();
+				getFilterObjectList();
+				bugAjax();
+				
 				}, 2000);
         	
         
@@ -276,7 +356,7 @@ $(function() {
         $('input[name=sortby]').val('pagetitle');
         $('input[name=sortdir]').val('asc');
         setTimeout(function() {
-            $('[data-sort-by]').data('sort-dir', 'asc').toggleClass('button-sort-asc').text(sortUpText);
+            $('.room-filter-btn').toggleClass('button-sort-asc');
         }, fadeSpeed);
         ajaxMainFunction();
         ajaxCount();
